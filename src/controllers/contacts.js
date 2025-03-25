@@ -9,16 +9,12 @@ import {
 } from '../services/contacts.js';
 
 export const getContactsController = async (req, res, next) => {
-  try {
-    const contacts = await getAllContacts();
-    res.json({
-      status: 200,
-      message: 'Successfully found contacts!',
-      data: contacts,
-    });
-  } catch (error) {
-    next(error);
-  }
+  const contacts = await getAllContacts();
+  res.json({
+    status: 200,
+    message: 'Successfully found contacts!',
+    data: contacts,
+  });
 };
 
 export const getContactByIdController = async (req, res, next) => {
@@ -43,23 +39,19 @@ export const createContactController = async (req, res, next) => {
     throw createHttpError(400, 'Name, phoneNumber are required fields.');
   }
 
-  try {
-    const contact = await createContact({
-      name,
-      phoneNumber,
-      email,
-      isFavourite,
-      contactType,
-    });
+  const contact = await createContact({
+    name,
+    phoneNumber,
+    email,
+    isFavourite,
+    contactType,
+  });
 
-    res.status(201).json({
-      status: 201,
-      message: 'Successfully created contact!',
-      data: contact,
-    });
-  } catch (error) {
-    next(error);
-  }
+  res.status(201).json({
+    status: 201,
+    message: 'Successfully created contact!',
+    data: contact,
+  });
 };
 
 export const patchContactController = async (req, res, next) => {
