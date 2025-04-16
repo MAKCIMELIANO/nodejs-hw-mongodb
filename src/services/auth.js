@@ -13,6 +13,11 @@ import { sendEmail } from '../utils/sendMail.js';
 
 import jwt from 'jsonwebtoken';
 
+import handlebars from 'handlebars';
+import path from 'node:path';
+import fs from 'node:fs/promises';
+import { TEMPLATES_DIR } from '../constants/index.js';
+
 export const registerUser = async (payload) => {
   const user = await UsersCollection.findOne({ email: payload.email });
   if (user) throw createHttpError(409, 'Email in use');
@@ -109,10 +114,25 @@ export const requestResetToken = async (email) => {
     },
   );
 
+  const resetPasswordTemplatePath = path.join(
+    TEMPLATES_DIR,
+    'reset-password-email.html',
+  );
+
+  const templateSource = (
+    await fs.readFile(resetPasswordTemplatePath)
+  ).toString();
+
+  const template = handlebars.compile(templateSource);
+  const html = template({
+    name: user.name,
+    link: `${getEnvVar('APP_DOMAIN')}/reset-password?token=${resetToken}`,
+  });
+
   await sendEmail({
     from: getEnvVar(SMTP.SMTP_FROM),
     to: email,
     subject: 'Reset your password',
-    html: `<p>Click <a href="${resetToken}">here</a> to reset your password!</p>`,
+    html,
   });
 };
