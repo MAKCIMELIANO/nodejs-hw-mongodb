@@ -123,10 +123,14 @@ export const requestResetToken = async (email) => {
   ).toString();
 
   const template = handlebars.compile(templateSource);
+  const link = `${getEnvVar('APP_DOMAIN')}/reset-password?token=${resetToken}`;
+  console.log('Reset link:', link); // Логирование ссылки
   const html = template({
     name: user.name,
-    link: `${getEnvVar('APP_DOMAIN')}/reset-password?token=${resetToken}`,
+    link: link,
   });
+
+  console.log('Generated HTML:', html); // Логирование HTML
 
   await sendEmail({
     from: getEnvVar(SMTP.SMTP_FROM),
@@ -134,4 +138,6 @@ export const requestResetToken = async (email) => {
     subject: 'Reset your password',
     html,
   });
+
+  console.log('Reset token email sent successfully to', email);
 };
