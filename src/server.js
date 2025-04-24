@@ -9,7 +9,6 @@ import { notFoundHandler } from './middlewares/notFoundHandlet.js';
 import cookieParser from 'cookie-parser';
 import { UPLOAD_DIR } from './constants/index.js';
 import { swaggerDocs } from './middlewares/swaggerDocs.js';
-import path from 'node:path';
 
 const PORT = Number(getEnvVar('PORT', '3000'));
 
