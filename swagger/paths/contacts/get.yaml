@@ -63,19 +63,41 @@ responses:
                 properties:
                   name:
                     type: string
+                    example: John Doe
                   phoneNumber:
                     type: string
+                    example: '+1234567890'
                   email:
                     type: string
+                    example: 'john.doe@example.com'
                   isFavourite:
                     type: boolean
+                    example: true
                   contactType:
                     type: string
                     enum: [work, home, personal]
+                    example: work
                   userId:
                     type: string
+                    example: '60d0fe4f5311236168a109ca'
                   photo:
                     type: string
+                    example: 'http://example.com/photos/johndoe.jpg'
+            pagination:
+              type: object
+              properties:
+                totalItems:
+                  type: integer
+                  example: 100
+                totalPages:
+                  type: integer
+                  example: 10
+                currentPage:
+                  type: integer
+                  example: 1
+                perPage:
+                  type: integer
+                  example: 10
   404:
     description: No contacts found
     content:

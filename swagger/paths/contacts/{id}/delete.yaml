@@ -21,3 +21,16 @@ responses:
       application/json:
         schema:
           type: object
+          properties:
+            status:
+              type: integer
+              example: 404
+            message:
+              type: string
+              example: Contact not found
+            data:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: 'The contact does not exist or has already been deleted.'

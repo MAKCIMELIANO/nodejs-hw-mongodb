@@ -10,13 +10,15 @@ requestBody:
     multipart/form-data:
       schema:
         type: object
+        required:
+          - name
+          - phoneNumber
+          - contactType
         properties:
           name:
             type: string
-            required: true
           phoneNumber:
             type: string
-            required: true
           email:
             type: string
           isFavourite:
@@ -24,7 +26,6 @@ requestBody:
           contactType:
             type: string
             enum: [work, home, personal]
-            required: true
           photo:
             type: string
             format: binary
@@ -47,19 +48,26 @@ responses:
               properties:
                 name:
                   type: string
+                  example: 'John Doe'
                 phoneNumber:
                   type: string
+                  example: '+1234567890'
                 email:
                   type: string
+                  example: 'john.doe@example.com'
                 isFavourite:
                   type: boolean
+                  example: true
                 contactType:
                   type: string
                   enum: [work, home, personal]
+                  example: work
                 userId:
                   type: string
+                  example: '123456789012345678901234'
                 photo:
                   type: string
+                  example: 'https://example.com/photo.jpg'
   400:
     description: Bad request
     content:

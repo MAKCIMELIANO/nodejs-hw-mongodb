@@ -119,16 +119,20 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "John Doe"
                           },
                           "phoneNumber": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "+1234567890"
                           },
                           "email": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "john.doe@example.com"
                           },
                           "isFavourite": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "example": true
                           },
                           "contactType": {
                             "type": "string",
@@ -136,14 +140,38 @@
                               "work",
                               "home",
                               "personal"
-                            ]
+                            ],
+                            "example": "work"
                           },
                           "userId": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "60d0fe4f5311236168a109ca"
                           },
                           "photo": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "http://example.com/photos/johndoe.jpg"
                           }
+                        }
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "totalItems": {
+                          "type": "integer",
+                          "example": 100
+                        },
+                        "totalPages": {
+                          "type": "integer",
+                          "example": 10
+                        },
+                        "currentPage": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "perPage": {
+                          "type": "integer",
+                          "example": 10
                         }
                       }
                     }
@@ -194,14 +222,17 @@
             "multipart/form-data": {
               "schema": {
                 "type": "object",
+                "required": [
+                  "name",
+                  "phoneNumber",
+                  "contactType"
+                ],
                 "properties": {
                   "name": {
-                    "type": "string",
-                    "required": true
+                    "type": "string"
                   },
                   "phoneNumber": {
-                    "type": "string",
-                    "required": true
+                    "type": "string"
                   },
                   "email": {
                     "type": "string"
@@ -215,8 +246,7 @@
                       "work",
                       "home",
                       "personal"
-                    ],
-                    "required": true
+                    ]
                   },
                   "photo": {
                     "type": "string",
@@ -247,16 +277,20 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "John Doe"
                         },
                         "phoneNumber": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "+1234567890"
                         },
                         "email": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "john.doe@example.com"
                         },
                         "isFavourite": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "example": true
                         },
                         "contactType": {
                           "type": "string",
@@ -264,13 +298,16 @@
                             "work",
                             "home",
                             "personal"
-                          ]
+                          ],
+                          "example": "work"
                         },
                         "userId": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "123456789012345678901234"
                         },
                         "photo": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "https://example.com/photo.jpg"
                         }
                       }
                     }
@@ -349,16 +386,20 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "John Doe"
                         },
                         "phoneNumber": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "+1234567890"
                         },
                         "email": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "john.doe@example.com"
                         },
                         "isFavourite": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "example": true
                         },
                         "contactType": {
                           "type": "string",
@@ -366,13 +407,16 @@
                             "work",
                             "home",
                             "personal"
-                          ]
+                          ],
+                          "example": "work"
                         },
                         "userId": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "user123"
                         },
                         "photo": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "https://example.com/photo.jpg"
                         }
                       }
                     }
@@ -484,16 +528,20 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "John Doe"
                         },
                         "phoneNumber": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "+1234567890"
                         },
                         "email": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "john.doe@example.com"
                         },
                         "isFavourite": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "example": true
                         },
                         "contactType": {
                           "type": "string",
@@ -501,13 +549,16 @@
                             "work",
                             "home",
                             "personal"
-                          ]
+                          ],
+                          "example": "work"
                         },
                         "userId": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "123456789012345678901234567890"
                         },
                         "photo": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "https://example.com/photo.jpg"
                         }
                       }
                     }
@@ -573,7 +624,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 404
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Contact not found"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "The contact does not exist or has already been deleted."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
