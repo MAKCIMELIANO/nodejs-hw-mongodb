@@ -149,7 +149,7 @@
                           },
                           "photo": {
                             "type": "string",
-                            "example": "http://example.com/photos/johndoe.jpg"
+                            "example": "[http://example.com/photos/johndoe.jpg"
                           }
                         }
                       }
@@ -157,21 +157,29 @@
                     "pagination": {
                       "type": "object",
                       "properties": {
-                        "totalItems": {
-                          "type": "integer",
-                          "example": 100
-                        },
-                        "totalPages": {
-                          "type": "integer",
-                          "example": 10
-                        },
-                        "currentPage": {
-                          "type": "integer",
+                        "page": {
+                          "type": "number",
                           "example": 1
                         },
                         "perPage": {
-                          "type": "integer",
-                          "example": 10
+                          "type": "number",
+                          "example": 20
+                        },
+                        "totalItems": {
+                          "type": "number",
+                          "example": 3
+                        },
+                        "totalPages": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "hasNextPage": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "hasPreviousPage": {
+                          "type": "boolean",
+                          "example": false
                         }
                       }
                     }
