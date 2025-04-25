@@ -61,6 +61,9 @@ responses:
               items:
                 type: object
                 properties:
+                  _id:
+                    type: string
+                    example: '60d0fe4f5311236168a109ca'
                   name:
                     type: string
                     example: John Doe
@@ -83,6 +86,14 @@ responses:
                   photo:
                     type: string
                     example: '[http://example.com/photos/johndoe.jpg'
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: '2022-01-01T00:00:00.000Z'
+                  updatedAt:
+                    type: string
+                    format: date-time
+                    example: '2022-01-01T00:00:00.000Z'
             pagination:
               type: object
               properties:
