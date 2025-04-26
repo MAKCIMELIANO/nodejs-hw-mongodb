@@ -114,63 +114,63 @@
                       "example": "Successfully found all contacts!"
                     },
                     "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "_id": {
-                            "type": "string",
-                            "example": "60d0fe4f5311236168a109ca"
-                          },
-                          "name": {
-                            "type": "string",
-                            "example": "John Doe"
-                          },
-                          "phoneNumber": {
-                            "type": "string",
-                            "example": "+1234567890"
-                          },
-                          "email": {
-                            "type": "string",
-                            "example": "john.doe@example.com"
-                          },
-                          "isFavourite": {
-                            "type": "boolean",
-                            "example": true
-                          },
-                          "contactType": {
-                            "type": "string",
-                            "enum": [
-                              "work",
-                              "home",
-                              "personal"
-                            ],
-                            "example": "work"
-                          },
-                          "userId": {
-                            "type": "string",
-                            "example": "60d0fe4f5311236168a109ca"
-                          },
-                          "photo": {
-                            "type": "string",
-                            "example": "[http://example.com/photos/johndoe.jpg"
-                          },
-                          "createdAt": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2022-01-01T00:00:00.000Z"
-                          },
-                          "updatedAt": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2022-01-01T00:00:00.000Z"
-                          }
-                        }
-                      }
-                    },
-                    "pagination": {
                       "type": "object",
                       "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "example": "60d0fe4f5311236168a109ca"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "John Doe"
+                              },
+                              "phoneNumber": {
+                                "type": "string",
+                                "example": "+1234567890"
+                              },
+                              "email": {
+                                "type": "string",
+                                "example": "john.doe@example.com"
+                              },
+                              "isFavourite": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "contactType": {
+                                "type": "string",
+                                "enum": [
+                                  "work",
+                                  "home",
+                                  "personal"
+                                ],
+                                "example": "work"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "example": "60d0fe4f5311236168a109ca"
+                              },
+                              "photo": {
+                                "type": "string",
+                                "example": "http://example.com/photos/johndoe.jpg"
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2022-01-01T00:00:00.000Z"
+                              },
+                              "updatedAt": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2022-01-01T00:00:00.000Z"
+                              }
+                            }
+                          }
+                        },
                         "page": {
                           "type": "number",
                           "example": 1
